@@ -1,0 +1,26 @@
+<div>
+  <p-card>
+    <ng-template pTemplate="title">
+      Personal Information
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="field">
+        <span class="p-float-label">
+            <input type="text" id="firstname" pInputText [(ngModel)]="firstname">
+            <label for="firstname">First Name</label>
+        </span>
+      </div>
+      <div class="field">
+        <span class="p-float-label">
+            <input type="text" id="lastname" pInputText [(ngModel)]="lastname">
+            <label for="lastname">Last Name</label>
+        </span>
+      </div>
+
+      <button pButton
+              label="Next"
+              (click)="nextPage()"
+      ></button>
+    </ng-template>
+  </p-card>
+</div>
