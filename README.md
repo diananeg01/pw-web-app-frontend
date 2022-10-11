@@ -1,6 +1,31 @@
-# PwWebAppFrontend
+# PW Web Application - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+## About
+This application aims to people that find comfort in reading, having access to an online library.
+It aimes both readers and admins, having many useful features.
+
+After the reader sign in/up, he can:
+-	Read books
+-	Add books to favourite
+-	Create personal folders where he can add books
+
+After the admin sign in/up, he can:
+-	See all users (+ search a user, filter them alphabetically)
+-	See all books (+ add, change, delete, search, filter)
+
+
+## Technologies
+
+This project was developed using the following technologies:
+-	Java
+-	Spring Boot
+-	Maven 3.8.5
+-	Node 16.16.0
+-	Npm 8.11
+-	Angular 14.2.4
+-	PostgreSQL
+
+# About Angular 14.2.4
 
 ## Development server
 
