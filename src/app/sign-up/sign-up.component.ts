@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-sign-up',
@@ -8,9 +9,15 @@ import {GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-  username: String;
-  email: String;
-  password: String;
+  username: any;
+  email: any;
+  password: any;
+
+  signUpForm: FormGroup = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required]),
+    password: new FormControl('', [Validators.required])
+  });
 
   constructor(private router: Router,
               private socialAuthService: SocialAuthService) {
@@ -18,7 +25,7 @@ export class SignUpComponent implements OnInit {
 
   loginWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then(() => this.router.navigate(['']));
+      .then(() => this.router.navigate(['sign-up/personal-information']));
   }
 
   ngOnInit(): void {
