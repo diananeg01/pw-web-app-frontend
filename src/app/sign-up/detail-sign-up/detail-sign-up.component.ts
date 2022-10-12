@@ -11,9 +11,6 @@ export class DetailSignUpComponent implements OnInit {
       label: 'Personal Information',
       routerLink: 'personal-information'
     },{
-      label: 'What have you read?',
-      routerLink: 'books-read'
-    },{
       label: 'Confirm data',
       routerLink: 'confirm'
     }

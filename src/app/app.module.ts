@@ -8,7 +8,6 @@ import {AuthGuardService} from "./sign-up/auth-guard.service";
 import {ToastModule} from "primeng/toast";
 import {StepsModule} from "primeng/steps";
 import { PersonalInformationComponent } from './sign-up/detail-sign-up/personal-information/personal-information.component';
-import { ReadBooksComponent } from './sign-up/detail-sign-up/read-books/read-books.component';
 import { ConfirmComponent } from './sign-up/detail-sign-up/confirm/confirm.component';
 import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
@@ -24,7 +23,6 @@ import {RippleModule} from "primeng/ripple";
     AppComponent,
     SignUpComponent,
     PersonalInformationComponent,
-    ReadBooksComponent,
     ConfirmComponent,
     DetailSignUpComponent
   ],
