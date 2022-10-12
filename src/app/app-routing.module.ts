@@ -6,7 +6,7 @@ import {DetailSignUpComponent} from "./sign-up/detail-sign-up/detail-sign-up.com
 const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-up/more', component: DetailSignUpComponent },
-  { path: '**', redirectTo: 'sign-up' },
+  { path: '**', redirectTo: 'sign-up', pathMatch: 'full' },
   /*
   { path: 'sign-in', component: SignInComponent },
   { path: 'main-page', component: MainComponent, canActivate: [AuthGuardService] },
