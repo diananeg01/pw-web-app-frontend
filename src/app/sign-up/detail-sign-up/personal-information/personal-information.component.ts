@@ -29,7 +29,7 @@ export class PersonalInformationComponent implements OnInit {
   nextPage() {
     if (this.firstname && this.lastname) {
       // salveaza detaliile
-      this.router.navigate(['/sign-up/books-read']);
+      this.router.navigate(['/confirm']);
     }
 
     this.submitted = true;
