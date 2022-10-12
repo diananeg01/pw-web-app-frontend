@@ -7,26 +7,22 @@ import {GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
 import {AuthGuardService} from "./sign-up/auth-guard.service";
 import {ToastModule} from "primeng/toast";
 import {StepsModule} from "primeng/steps";
-import { PersonalInformationComponent } from './sign-up/detail-sign-up/personal-information/personal-information.component';
-import { ConfirmComponent } from './sign-up/detail-sign-up/confirm/confirm.component';
 import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
 import {FormsModule} from "@angular/forms";
 import {MessageService} from "primeng/api";
 import {ButtonModule} from "primeng/button";
-import { DetailSignUpComponent } from './sign-up/detail-sign-up/detail-sign-up.component';
 import {RippleModule} from "primeng/ripple";
+import {DetailSignUpModule} from "./sign-up/detail-sign-up/detail-sign-up.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent,
-    PersonalInformationComponent,
-    ConfirmComponent,
-    DetailSignUpComponent
+    SignUpComponent
   ],
   imports: [
+    DetailSignUpModule,
     BrowserModule,
     AppRoutingModule,
     ToastModule,
