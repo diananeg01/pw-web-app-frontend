@@ -5,7 +5,7 @@
         <img src="assets/bookly.png" [style]="{'width': '50px'}" alt="bookly">
         <h2>Get Started.</h2>
       </div>
-      <p>Already have an account? <a routerLink="/sign-in">Sign in</a></p>
+      <p>Already have an account? <a routerLink="sign-in">Sign in</a></p>
       <button pButton pRipple
               label="Sign up with Google"
               class="p-button-outlined"
@@ -49,7 +49,7 @@
         <button pButton pRipple
                 label="Sign up"
                 class="p-button-outlined"
-                routerLink="/personal-information"
+                (click)="signUp()"
                 [style]="{width: '100%'}"
         ></button>
       </div>

@@ -34,4 +34,7 @@ export class SignUpComponent implements OnInit {
     this.password = ''
   }
 
+  signUp() {
+    this.router.navigate(["sign-up-details/personal-information"]);
+  }
 }
