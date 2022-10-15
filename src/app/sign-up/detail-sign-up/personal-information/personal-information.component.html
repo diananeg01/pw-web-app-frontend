@@ -1,4 +1,4 @@
-<div>
+<div class="personal-information">
   <p-card>
     <ng-template pTemplate="title">
       Personal Information
@@ -18,9 +18,18 @@
       </div>
 
       <button pButton
+              icon="pi pi-arrow-left"
+              label="Back to 'Sign up'"
+              (click)="backToSignUp()"
+      ></button>
+      <button pButton
+              class="next-button"
+              icon="pi pi-arrow-right"
               label="Next"
               (click)="nextPage()"
       ></button>
     </ng-template>
   </p-card>
 </div>
+
+<p-toast></p-toast>

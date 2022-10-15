@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-personal-information',
   templateUrl: './personal-information.component.html',
-  styleUrls: ['./personal-information.component.css']
+  styleUrls: ['./personal-information.component.scss'],
+  providers: [MessageService]
 })
 export class PersonalInformationComponent implements OnInit {
   firstname: any;
@@ -18,7 +20,8 @@ export class PersonalInformationComponent implements OnInit {
 
   submitted: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private messageService: MessageService) {
     this.submitted = false;
   }
 
@@ -29,9 +32,14 @@ export class PersonalInformationComponent implements OnInit {
   nextPage() {
     if (this.firstname && this.lastname) {
       // salveaza detaliile
-      this.router.navigate(['/confirm']);
+      this.router.navigate(['sign-up-details/confirm']);
+    } else {
+      this.messageService.add({severity:'error', summary:'Unfinished', detail:'You must complete all fields before confirming!'})
     }
-
     this.submitted = true;
+  }
+
+  backToSignUp() {
+    this.router.navigate(['sign-up']);
   }
 }
