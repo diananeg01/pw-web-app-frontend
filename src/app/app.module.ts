@@ -15,6 +15,7 @@ import {MessageService} from "primeng/api";
 import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
 import {DetailSignUpModule} from "./sign-up/detail-sign-up/detail-sign-up.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {DetailSignUpModule} from "./sign-up/detail-sign-up/detail-sign-up.module
   imports: [
     DetailSignUpModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ToastModule,
     StepsModule,
