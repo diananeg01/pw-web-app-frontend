@@ -1,0 +1,41 @@
+<div class="confirm">
+  <p-card>
+    <ng-template pTemplate="title">
+      Confirm details that you completed earlier
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="field">
+        <span class="">
+            <label for="username">Username</label>
+        </span>
+      </div>
+      <div class="field">
+        <span class="">
+            <label for="email">Email address</label>
+        </span>
+      </div>
+      <div class="field">
+        <span class="">
+            <label for="firstname">First Name</label>
+        </span>
+      </div>
+      <div class="field">
+        <span class="">
+            <label for="lastname">Last Name</label>
+        </span>
+      </div>
+
+      <button pButton
+              icon="pi pi-arrow-left"
+              label="Back"
+              (click)="back()"
+      ></button>
+      <button pButton
+              class="confirm-button"
+              icon="pi pi-check"
+              label="Finish"
+              (click)="finish()"
+      ></button>
+    </ng-template>
+  </p-card>
+</div>
