@@ -16,6 +16,8 @@ import {ButtonModule} from "primeng/button";
 import {RippleModule} from "primeng/ripple";
 import {DetailSignUpModule} from "./sign-up/detail-sign-up/detail-sign-up.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AdminModule} from "./admin/admin.module";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   ],
   imports: [
     DetailSignUpModule,
+    AdminModule,
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     ToastModule,
     StepsModule,
@@ -51,7 +55,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   },
     AuthGuardService,
     SocialAuthService,
-    MessageService
+    MessageService,
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })

@@ -5,21 +5,23 @@ import {BookModel} from "../../../model/book.model";
 @Component({
   selector: 'pw-book-panel',
   templateUrl: './book-panel.component.html',
-  styleUrls: ['./book-panel.component.scss']
+  styleUrls: ['./book-panel.component.scss'],
+  providers: [MessageService, ConfirmationService]
 })
 export class BookPanelComponent implements OnInit {
 
   books: BookModel[] = [];
   selectedBooks: BookModel[] = [];
-  book: BookModel;
-  bookDialog: boolean;
-  submitted: boolean;
+  book: BookModel = {};
+  bookDialog: boolean = false;
+  submitted: boolean = false;
 
   constructor(private messageService: MessageService,
               private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     //ia din endpoint
+    console.log("book-panel");
   }
 
   editBook(book: BookModel) {

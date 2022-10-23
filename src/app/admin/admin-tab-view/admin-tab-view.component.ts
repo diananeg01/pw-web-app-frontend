@@ -7,7 +7,18 @@ import {MenuItem} from "primeng/api";
   styleUrls: ['./admin-tab-view.component.css']
 })
 export class AdminTabViewComponent implements OnInit {
-  items: MenuItem[] = [];
+  items: MenuItem[] = [
+    {
+      label: "Books",
+      icon: "pi pi-book",
+      routerLink: ['books']
+    },
+    {
+      label: "Users",
+      icon: "pi pi-users",
+      routerLink: ['users']
+    }
+  ];
   activeItem: MenuItem;
 
   constructor() {
@@ -15,16 +26,7 @@ export class AdminTabViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.items = [
-      {
-        label: "Books", icon: "pi pi-book"
-      },
-      {
-        label: "Users", icon: "pi pi-users"
-      }
-    ];
-
-    this.activeItem = this.items[0];
+    console.log("admin");
   }
 
 }

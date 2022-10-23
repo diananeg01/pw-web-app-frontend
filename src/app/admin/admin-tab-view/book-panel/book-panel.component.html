@@ -3,7 +3,7 @@
     <ng-template pTemplate="left">
       <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
               (click)="openNew()"></button>
-      <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedBooks()"
+      <button pButton pRipple label="Delete selected books" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedBooks()"
               [disabled]="!selectedBooks || !selectedBooks.length"></button>
     </ng-template>
 
@@ -24,7 +24,7 @@
         <h5 class="p-m-0">Manage books</h5>
         <span class="p-input-icon-left">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+          <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')"
                            placeholder="Search..."/>
         </span>
       </div>

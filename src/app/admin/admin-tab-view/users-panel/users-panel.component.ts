@@ -6,21 +6,23 @@ import {RoleEnum} from "../../../model/role.enum";
 @Component({
   selector: 'pw-users-panel',
   templateUrl: './users-panel.component.html',
-  styleUrls: ['./users-panel.component.scss']
+  styleUrls: ['./users-panel.component.scss'],
+  providers: [MessageService, ConfirmationService]
 })
 export class UsersPanelComponent implements OnInit {
 
   users: UserModel[] = [];
   selectedUsers: UserModel[] = [];
-  user: UserModel;
-  userDialog: boolean;
-  submitted: boolean;
+  user: UserModel = {};
+  userDialog: boolean = false;
+  submitted: boolean = false;
 
   constructor(private messageService: MessageService,
               private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     //ia din endpoint
+    console.log("users-panel");
   }
 
   makeAdmin(user: UserModel) {

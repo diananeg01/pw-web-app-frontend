@@ -1,1 +1,7 @@
-<p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+<div>
+  <p-card>
+    <p-tabMenu [model]="items" [activeItem]="activeItem" [style]="{margin: '5px 0 25px 0'}"></p-tabMenu>
+    <router-outlet></router-outlet>
+  </p-card>
+</div>
+

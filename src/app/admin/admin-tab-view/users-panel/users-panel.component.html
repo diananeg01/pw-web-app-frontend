@@ -1,7 +1,7 @@
 <div class="card">
   <p-toolbar styleClass="p-mb-4">
     <ng-template pTemplate="left">
-      <button pButton pRipple icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedUsers()"
+      <button pButton pRipple label="Delete selected users" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedUsers()"
               [disabled]="!selectedUsers || !selectedUsers.length"></button>
     </ng-template>
   </p-toolbar>
@@ -16,7 +16,7 @@
         <h5 class="p-m-0">Manage users</h5>
         <span class="p-input-icon-left">
           <i class="pi pi-search"></i>
-          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+          <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')"
                            placeholder="Search..."/>
         </span>
       </div>

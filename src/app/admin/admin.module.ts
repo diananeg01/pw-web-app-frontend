@@ -17,6 +17,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {FormsModule} from "@angular/forms";
 import {TabMenuModule} from "primeng/tabmenu";
+import {CardModule} from "primeng/card";
 
 
 
@@ -41,7 +42,8 @@ import {TabMenuModule} from "primeng/tabmenu";
     InputTextModule,
     InputTextareaModule,
     FormsModule,
-    TabMenuModule
+    TabMenuModule,
+    CardModule
   ]
 })
 export class AdminModule { }
