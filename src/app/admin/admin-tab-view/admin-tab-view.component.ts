@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-admin-tab-view',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-tab-view.component.css']
 })
 export class AdminTabViewComponent implements OnInit {
+  items: MenuItem[] = [];
+  activeItem: MenuItem;
 
-  constructor() { }
+  constructor() {
+    this.activeItem = this.items[0];
+  }
 
   ngOnInit(): void {
+    this.items = [
+      {
+        label: "Books", icon: "pi pi-book"
+      },
+      {
+        label: "Users", icon: "pi pi-users"
+      }
+    ];
+
+    this.activeItem = this.items[0];
   }
 
 }

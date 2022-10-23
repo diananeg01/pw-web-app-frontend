@@ -14,6 +14,9 @@ import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {ToastModule} from "primeng/toast";
 import {InputNumberModule} from "primeng/inputnumber";
 import {InputTextModule} from "primeng/inputtext";
+import {InputTextareaModule} from "primeng/inputtextarea";
+import {FormsModule} from "@angular/forms";
+import {TabMenuModule} from "primeng/tabmenu";
 
 
 
@@ -35,7 +38,10 @@ import {InputTextModule} from "primeng/inputtext";
     ConfirmDialogModule,
     ToastModule,
     InputNumberModule,
-    InputTextModule
+    InputTextModule,
+    InputTextareaModule,
+    FormsModule,
+    TabMenuModule
   ]
 })
 export class AdminModule { }
