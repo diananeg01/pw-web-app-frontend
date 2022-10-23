@@ -3,7 +3,7 @@ import {ConfirmationService, MessageService} from "primeng/api";
 import {BookModel} from "../../../model/book.model";
 
 @Component({
-  selector: 'pw-book-panel',
+  selector: 'app-book-panel',
   templateUrl: './book-panel.component.html',
   styleUrls: ['./book-panel.component.scss'],
   providers: [MessageService, ConfirmationService]

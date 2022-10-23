@@ -4,7 +4,7 @@ import {UserModel} from "../../../model/user.model";
 import {RoleEnum} from "../../../model/role.enum";
 
 @Component({
-  selector: 'pw-users-panel',
+  selector: 'app-users-panel',
   templateUrl: './users-panel.component.html',
   styleUrls: ['./users-panel.component.scss'],
   providers: [MessageService, ConfirmationService]
