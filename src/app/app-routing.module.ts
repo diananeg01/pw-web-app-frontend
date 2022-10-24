@@ -9,26 +9,24 @@ import {ConfirmComponent} from "./sign-up/detail-sign-up/confirm/confirm.compone
 import {AdminTabViewComponent} from "./admin/admin-tab-view/admin-tab-view.component";
 import {BookPanelComponent} from "./admin/admin-tab-view/book-panel/book-panel.component";
 import {UsersPanelComponent} from "./admin/admin-tab-view/users-panel/users-panel.component";
+import {SignInComponent} from "./sign-in/sign-in.component";
 
 const routes: Routes = [
+  { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-up-details', component: DetailSignUpComponent, children: [
       { path: 'personal-information', component: PersonalInformationComponent },
       { path: 'confirm', component: ConfirmComponent },
       { path: '**', redirectTo: 'personal-information', pathMatch: 'full' }
     ] },
+  // { path: 'main-page', component: MainComponent, canActivate: [AuthGuardService] },
   { path: 'admin', component: AdminTabViewComponent, children: [
       { path: 'books', component: BookPanelComponent },
       { path: 'users', component: UsersPanelComponent },
       { path: '**', redirectTo: 'books', pathMatch: 'full' }
     ] },
-  { path: '', redirectTo: 'sign-up', pathMatch: 'full' },
-  { path: '**', redirectTo: 'sign-up' },
-  /*
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'main-page', component: MainComponent, canActivate: [AuthGuardService] },
-  { path: '**', component: SignInComponent }
-   */
+  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+  { path: '**', redirectTo: 'sign-in' }
 ];
 
 @NgModule({
