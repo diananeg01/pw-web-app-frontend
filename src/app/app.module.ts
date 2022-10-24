@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
+import {GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig} from "angularx-social-login";
 import {AuthGuardService} from "./sign-up/auth-guard.service";
 import {ToastModule} from "primeng/toast";
 import {StepsModule} from "primeng/steps";
@@ -18,6 +18,7 @@ import {DetailSignUpModule} from "./sign-up/detail-sign-up/detail-sign-up.module
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AdminModule} from "./admin/admin.module";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {SignInModule} from "./sign-in/sign-in.module";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     DetailSignUpModule,
+    SignInModule,
     AdminModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -51,7 +53,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
           provider: new GoogleLoginProvider('210196115863-h4kah9l2uub83u36hkd829sficksfmu4.apps.googleusercontent.com') //clientID
         }
       ]
-    }
+    } as SocialAuthServiceConfig
   },
     AuthGuardService,
     SocialAuthService,
