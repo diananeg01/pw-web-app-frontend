@@ -14,7 +14,7 @@ import {MenubarModule} from "primeng/menubar";
 import { LibraryAppComponent } from './library-app.component';
 import { FavouritesPageComponent } from './favourites-page/favourites-page.component';
 import { RequestBookComponent } from './request-book/request-book.component';
-import { BookViewComponent } from './book-view/book-view.component';
+import { BookViewComponent } from '../admin/admin-tab-view/book-panel/book-view/book-view.component';
 
 
 
@@ -37,7 +37,8 @@ import { BookViewComponent } from './book-view/book-view.component';
     InputTextModule,
     RippleModule,
     CardModule,
-    MenubarModule
+    MenubarModule,
+    RatingModule
   ]
 })
 export class LibraryAppModule { }
