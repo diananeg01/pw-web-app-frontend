@@ -18,7 +18,7 @@ export class BookViewComponent implements OnInit {
     publishingHouse: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
     category: new FormControl('', [Validators.required]),
-    price: new FormControl('', [Validators.required])
+    cover: new FormControl('', [Validators.required])
   });
 
   constructor(public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
