@@ -24,7 +24,8 @@ export class MenubarComponent implements OnInit {
       {
         label: 'Request a book',
         icon: 'pi pi-book',
-        routerLink: 'request-book'
+        routerLink: 'request-book',
+        disabled: true
       }
     ]
   }
