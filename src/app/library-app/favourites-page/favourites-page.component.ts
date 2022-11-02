@@ -1,28 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import {BookModel} from "../../model/book.model";
 import {SelectItem} from "primeng/api";
+import {UserEndpointService} from "../../endpoints/user-endpoint.service";
 
 @Component({
   selector: 'app-favourites-page',
   templateUrl: './favourites-page.component.html',
-  styleUrls: ['./favourites-page.component.css']
+  styleUrls: ['./favourites-page.component.scss']
 })
 export class FavouritesPageComponent implements OnInit {
 
-  favouriteBooks: BookModel[] = []
+  favouriteBooks: BookModel[] = [];
+  username: string;
 
   sortOptions: SelectItem[] = [];
   sortOrder: number;
   sortField: string;
   sortKey: any;
 
-  constructor() {
+  constructor(private userEndpointService: UserEndpointService) {
     this.sortOrder = 0;
     this.sortField = '';
+    this.username = '';
   }
 
   ngOnInit(): void {
     console.log("favourites-page");
+    this.username = JSON.parse(localStorage.getItem('username')!);
+    this.userEndpointService.getFavouritesList(this.username).subscribe({
+      next: books => this.favouriteBooks = books
+    });
   }
 
   onSortChange(event: any) {

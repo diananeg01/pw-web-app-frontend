@@ -1,6 +1,6 @@
 <p-card [style]="{'margin-top': '15px'}">
   <h1>Your favourites books</h1>
-  <p>Here you can find all books from our </p>
+  <p>Here you can find all books from our database that yoy marked as favourite</p>
   <p-dataView #dv [value]="favouriteBooks" [paginator]="true" [rows]="6" filterBy="name"
               [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
     <ng-template pTemplate="header">
@@ -16,14 +16,12 @@
       <div class="p-col-12">
         <div class="product-list-item">
           <div class="product-list-detail">
-            <div class="product-name">{{book.name}}</div>
+            <div class="product-name"><i>{{book.title}}</i>, {{book.author}}</div>
+            <div class="product-description">{{book.publishingHouse}}</div>
             <div class="product-description">{{book.description}}</div>
-<!--            <p-rating [ngModel]="book.rating" [readonly]="true" [cancel]="false"></p-rating>-->
-<!--            <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{book.category}}</span>-->
           </div>
           <div class="product-list-action">
-<!--            <button pButton pRipple icon="pi pi-shopping-cart" label="Add to Cart" [disabled]="book.inventoryStatus === 'OUTOFSTOCK'"></button>-->
-            <span [class]="'product-badge status-' + book.category.toLowerCase()">{{book.category}}</span>
+            <span [class]="'product-badge status-' + book.category">{{book.category}}</span>
           </div>
         </div>
       </div>
@@ -36,15 +34,12 @@
               <i class="pi pi-tag product-category-icon"></i>
               <span class="product-category">{{book.category}}</span>
             </div>
-            <span [class]="'product-badge status-' + book.inventoryStatus.toLowerCase()">{{book.inventoryStatus}}</span>
+            <span [class]="'product-badge status-' + book.category">{{book.category}}</span>
           </div>
           <div class="product-grid-item-content">
-            <div class="product-name">{{book.name}}</div>
+            <div class="product-name"><i>{{book.title}}</i>, {{book.author}}</div>
+            <div class="product-description">{{book.publishingHouse}}</div>
             <div class="product-description">{{book.description}}</div>
-            <p-rating [ngModel]="book.rating" [readonly]="true" [cancel]="false"></p-rating>
-          </div>
-          <div class="product-grid-item-bottom">
-            <button pButton pRipple icon="pi pi-star" [disabled]="book.inventoryStatus === 'OUTOFSTOCK'"></button>
           </div>
         </div>
       </div>
