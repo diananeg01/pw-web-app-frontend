@@ -1,4 +1,4 @@
-import {RoleEnum} from "./role.enum";
+import {UserRole} from "./user-role";
 
 export class UserModel {
   id?: number;
@@ -7,5 +7,5 @@ export class UserModel {
   lastname?: string;
   email?: string;
   password?: string;
-  role?: RoleEnum;
+  userRole?: UserRole;
 }
