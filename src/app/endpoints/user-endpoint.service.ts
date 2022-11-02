@@ -48,10 +48,10 @@ export class UserEndpointService {
   }
 
   addBookToFavourites(username: string, book: BookModel) {
-    return this.http.post(BKE_API + `user/${username}/add-favourites`, {...book});
+    return this.http.post(BKE_API + `/user/${username}/add-favourites`, {...book});
   }
 
-  getFavouritesList(username: string) {
+  getFavouritesList(username: string) : Observable<any> {
     return this.http.get(BKE_API + `/user/${username}/favourites`);
   }
 }
