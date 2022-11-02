@@ -10,6 +10,11 @@ import {AdminTabViewComponent} from "./admin/admin-tab-view/admin-tab-view.compo
 import {BookPanelComponent} from "./admin/admin-tab-view/book-panel/book-panel.component";
 import {UsersPanelComponent} from "./admin/admin-tab-view/users-panel/users-panel.component";
 import {SignInComponent} from "./sign-in/sign-in.component";
+import {AuthGuardService} from "./sign-up/auth-guard.service";
+import {LibraryAppComponent} from "./library-app/library-app.component";
+import {MainPageComponent} from "./library-app/main-page/main-page.component";
+import {FavouritesPageComponent} from "./library-app/favourites-page/favourites-page.component";
+import {RequestBookComponent} from "./library-app/request-book/request-book.component";
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
@@ -19,7 +24,15 @@ const routes: Routes = [
       { path: 'confirm', component: ConfirmComponent },
       { path: '**', redirectTo: 'personal-information', pathMatch: 'full' }
     ] },
-  // { path: 'main-page', component: MainComponent, canActivate: [AuthGuardService] },
+  { path: 'main-page', component: LibraryAppComponent,
+    // canActivate: [AuthGuardService],
+    children: [
+      { path: 'all-books', component: MainPageComponent },
+      { path: 'favourite-books', component: FavouritesPageComponent },
+      { path: 'request-book', component: RequestBookComponent },
+      { path: '**', redirectTo: 'all-books', pathMatch: 'full' }
+    ]
+  },
   { path: 'admin', component: AdminTabViewComponent, children: [
       { path: 'books', component: BookPanelComponent },
       { path: 'users', component: UsersPanelComponent },

@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AdminModule} from "./admin/admin.module";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {SignInModule} from "./sign-in/sign-in.module";
+import {LibraryAppModule} from "./library-app/library-app.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {SignInModule} from "./sign-in/sign-in.module";
   imports: [
     DetailSignUpModule,
     SignInModule,
+    LibraryAppModule,
     AdminModule,
     BrowserModule,
     BrowserAnimationsModule,

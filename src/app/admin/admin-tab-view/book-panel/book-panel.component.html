@@ -10,7 +10,6 @@
     <ng-template pTemplate="right">
       <p-fileUpload mode="basic" accept=".pdf" [maxFileSize]="1000000" label="Import" chooseLabel="Import"
                     class="p-mr-2 p-d-inline-block"></p-fileUpload>
-      <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
     </ng-template>
   </p-toolbar>
 
@@ -46,10 +45,6 @@
           Publishing House
           <p-sortIcon field="publishingHouse"></p-sortIcon>
         </th>
-        <th pSortableColumn="price">
-          Price
-          <p-sortIcon field="price"></p-sortIcon>
-        </th>
         <th pSortableColumn="category">
           Category
           <p-sortIcon field="category"></p-sortIcon>
@@ -67,7 +62,6 @@
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         <td>{{book.publishingHouse}}</td>
-        <td>{{book.price | currency:'RON'}}</td>
         <td>{{book.category}}</td>
         <!--        <td><p-rating [ngModel]="book.rating" [readonly]="true" [cancel]="false"></p-rating></td>-->
         <!--        <td><span [class]="'product-badge status-' + book.inventoryStatus.toLowerCase()">{{book.inventoryStatus}}</span></td>-->
@@ -113,16 +107,10 @@
       <input type="text" pInputText id="category" [(ngModel)]="book.category" required autofocus/> <!-- autocomplete -->
       <small class="p-invalid" *ngIf="submitted && !book.category">Category is required.</small>
     </div>
-    <div class="p-formgrid p-grid">
-      <div class="p-field p-col">
-        <label for="price">Price</label>
-        <p-inputNumber id="price" [(ngModel)]="book.price" mode="currency" currency="RON"
-                       locale="en-GB"></p-inputNumber>
-      </div>
-<!--      <div class="p-field p-col">-->
-<!--        <label for="quantity">Quantity</label>-->
-<!--        <p-inputNumber id="quantity" [(ngModel)]="book.quantity"></p-inputNumber>-->
-<!--      </div>-->
+    <div class="p-field">
+      <label for="cover">Cover (link to photo)</label>
+      <input type="text" pInputText id="cover" [(ngModel)]="book.cover" required autofocus/> <!-- autocomplete -->
+      <small class="p-invalid" *ngIf="submitted && !book.cover">Cover is required.</small>
     </div>
   </ng-template>
 

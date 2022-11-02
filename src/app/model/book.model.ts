@@ -5,5 +5,5 @@ export class BookModel {
   publishingHouse?: string;
   description?: string;
   category?: string;
-  price?: number;
+  cover?: string;
 }
