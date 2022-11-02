@@ -5,30 +5,14 @@
         <img src="assets/bookly.png" [style]="{'width': '50px'}" alt="bookly">
         <h2>Welcome back.</h2>
       </div>
-      <p>Don't have an account? <a routerLink="sign-up">Sign up</a></p>
-<!--      <div id="g_id_onload"-->
-<!--            data-client_id="210196115863-h4kah9l2uub83u36hkd829sficksfmu4.apps.googleusercontent.com"-->
-<!--            data-context="signin"-->
-<!--            data-ux_mode="redirect"-->
-<!--            data-login_uri="http://localhost:4200/sign-in"-->
-<!--            data-auto_prompt="false">-->
-<!--    </div>-->
-
-<!--      <div class="g_id_signin"-->
-<!--           data-type="standard"-->
-<!--           data-shape="rectangular"-->
-<!--           data-theme="outline"-->
-<!--           data-text="signin_with"-->
-<!--           data-size="large"-->
-<!--           data-logo_alignment="left">-->
-<!--      </div>-->
-      <button pButton pRipple
-              label="Sign in with Google"
-              class="p-button-outlined"
-              icon="pi pi-google"
-              (click)="loginWithGoogle()"
-              [style]="{width: '100%'}"
-      ></button>
+      <p>Don't have an account? <a routerLink="../sign-up">Sign up</a></p>
+<!--      <button pButton pRipple-->
+<!--              label="Sign in with Google"-->
+<!--              class="p-button-outlined"-->
+<!--              icon="pi pi-google"-->
+<!--              (click)="loginWithGoogle()"-->
+<!--              [style]="{width: '100%'}"-->
+<!--      ></button>-->
     </ng-template>
     <div>
       <table>
@@ -46,8 +30,8 @@
     <ng-template pTemplate="content">
       <div class="field">
         <span class="p-float-label">
-          <input type="email" id="email" pInputText [(ngModel)]="usernameOrEmail" [style]="{width: '100%'}">
-          <label for="email">Username / Email</label>
+          <input type="email" id="email" pInputText [(ngModel)]="username" [style]="{width: '100%'}">
+          <label for="email">Username</label>
         </span>
       </div>
       <div class="field">

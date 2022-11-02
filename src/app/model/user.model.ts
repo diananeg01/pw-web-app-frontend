@@ -1,11 +1,11 @@
-import {RoleEnum} from "./role.enum";
+import {UserRole} from "./user-role";
 
 export class UserModel {
-  id?: string;
+  user_uuid?: number;
   username?: string;
   firstname?: string;
   lastname?: string;
   email?: string;
   password?: string;
-  role?: RoleEnum;
+  userRole?: UserRole;
 }

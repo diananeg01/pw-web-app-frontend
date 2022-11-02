@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'confirm', component: ConfirmComponent },
       { path: '**', redirectTo: 'personal-information', pathMatch: 'full' }
     ] },
-  { path: 'main-page', component: LibraryAppComponent,
+  { path: ':username/main-page', component: LibraryAppComponent,
     // canActivate: [AuthGuardService],
     children: [
       { path: 'all-books', component: MainPageComponent },
@@ -33,7 +33,7 @@ const routes: Routes = [
       { path: '**', redirectTo: 'all-books', pathMatch: 'full' }
     ]
   },
-  { path: 'admin', component: AdminTabViewComponent, children: [
+  { path: ':username/admin', component: AdminTabViewComponent, children: [
       { path: 'books', component: BookPanelComponent },
       { path: 'users', component: UsersPanelComponent },
       { path: '**', redirectTo: 'books', pathMatch: 'full' }

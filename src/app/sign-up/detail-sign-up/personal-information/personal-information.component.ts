@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MessageService} from "primeng/api";
+import {UserEndpointService} from "../../../endpoints/user-endpoint.service";
+import {UserModel} from "../../../model/user.model";
 
 @Component({
   selector: 'app-personal-information',
@@ -13,15 +14,11 @@ export class PersonalInformationComponent implements OnInit {
   firstname: any;
   lastname: any;
 
-  personalInformationFormGroup = new FormGroup({
-    firstname: new FormControl('', [Validators.required]),
-    lastname: new FormControl('', [Validators.required])
-  });
-
   submitted: boolean;
 
   constructor(private router: Router,
-              private messageService: MessageService) {
+              private messageService: MessageService,
+              private userEndpointService: UserEndpointService) {
     this.submitted = false;
   }
 
@@ -31,7 +28,14 @@ export class PersonalInformationComponent implements OnInit {
 
   nextPage() {
     if (this.firstname && this.lastname) {
-      // salveaza detaliile
+      const newUser: UserModel = {
+        firstname: this.firstname,
+        lastname: this.lastname
+      };
+      const email = JSON.parse(localStorage.getItem('email')!);
+      this.userEndpointService.editUser(newUser, email);
+      localStorage.setItem('firstname', JSON.stringify(this.firstname));
+      localStorage.setItem('lastname', JSON.stringify(this.lastname));
       this.router.navigate(['sign-up-details/confirm']);
     } else {
       this.messageService.add({severity:'error', summary:'Unfinished', detail:'You must complete all fields before confirming!'})

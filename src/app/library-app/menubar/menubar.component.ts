@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from "primeng/api";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menubar',
@@ -9,7 +10,7 @@ import {MenuItem} from "primeng/api";
 export class MenubarComponent implements OnInit {
   items: MenuItem[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
     this.items = [
       {
         label: 'Main Page',
@@ -33,4 +34,8 @@ export class MenubarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  signOut() {
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
 }

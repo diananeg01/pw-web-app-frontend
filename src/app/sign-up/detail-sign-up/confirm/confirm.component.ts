@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -6,7 +6,11 @@ import {Router} from "@angular/router";
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
-export class ConfirmComponent implements OnInit {
+export class ConfirmComponent implements OnInit, AfterContentInit {
+  username: string = '';
+  email: string = '';
+  firstname: string = '';
+  lastname: string = '';
 
   constructor(private router: Router) { }
 
@@ -15,11 +19,17 @@ export class ConfirmComponent implements OnInit {
   }
 
   finish() {
-    // salveaza user ul si trimite pe backend
-    this.router.navigate(['/main-page']);
+    this.router.navigate([`/:${this.username}/main-page`]);
   }
 
   back() {
     this.router.navigate(['sign-up-details/personal-information']);
+  }
+
+  ngAfterContentInit(): void {
+    this.username = JSON.parse(localStorage.getItem('username')!);
+    this.email = JSON.parse(localStorage.getItem('email')!);
+    this.firstname = JSON.parse(localStorage.getItem('firstname')!);
+    this.lastname = JSON.parse(localStorage.getItem('lastname')!);
   }
 }

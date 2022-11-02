@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
+import {UserEndpointService} from "../endpoints/user-endpoint.service";
+import {UserModel} from "../model/user.model";
+import {UserRole} from "../model/user-role";
 
 @Component({
   selector: 'app-sign-in',
@@ -9,16 +11,12 @@ import {GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-  usernameOrEmail: any;
+  username: any;
   password: any;
 
-  signInForm: FormGroup = new FormGroup({
-    usernameOrEmail: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
-  });
-
   constructor(private router: Router,
-              private socialAuthService: SocialAuthService) {
+              private socialAuthService: SocialAuthService,
+              private userEndpointService: UserEndpointService) {
   }
 
   loginWithGoogle(): void {
@@ -28,11 +26,21 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.usernameOrEmail = '';
+    this.username = '';
     this.password = '';
   }
 
   signIn() {
-    this.router.navigate(["main-page"]);
+    this.userEndpointService.signIn(this.username, this.password).subscribe({
+      next: (user: UserModel) => {
+        console.log(user);
+        localStorage.setItem('username', JSON.stringify(user.username));
+        if(user.userRole === UserRole.READER) {
+          this.router.navigateByUrl(`/${user.username}/main-page`);
+        } else if(user.userRole === UserRole.ADMIN) {
+          this.router.navigateByUrl(`/${user.username}/admin`);
+        }
+      }
+    });
   }
 }
