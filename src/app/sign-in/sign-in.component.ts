@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit {
     this.userEndpointService.signIn(this.username, this.password).subscribe({
       next: (user: UserModel) => {
         console.log(user);
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('username', JSON.stringify(user.username));
         if(user.userRole === UserRole.READER) {
           this.router.navigateByUrl(`/${user.username}/main-page`);
         } else if(user.userRole === UserRole.ADMIN) {
