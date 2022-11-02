@@ -51,8 +51,8 @@ export class UsersPanelComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.userEndpointService.deleteUser(user.id!).subscribe();
-        this.users = this.users.filter(val => val.id !== user.id);
+        this.userEndpointService.deleteUser(user.user_uuid!).subscribe();
+        this.users = this.users.filter(val => val.user_uuid !== user.user_uuid);
         this.user = {};
         this.messageService.add({severity:'success', summary: 'Successful', detail: 'User Deleted!', life: 3000});
         window.location.reload()
@@ -67,7 +67,7 @@ export class UsersPanelComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.selectedUsers.forEach(selectedUser => {
-          this.userEndpointService.deleteUser(selectedUser.id!).subscribe();
+          this.userEndpointService.deleteUser(selectedUser.user_uuid!).subscribe();
         });
         this.users = this.users.filter(val => !this.selectedUsers.includes(val));
         this.selectedUsers = [];

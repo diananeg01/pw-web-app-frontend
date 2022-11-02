@@ -51,8 +51,8 @@ export class BookPanelComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.bookEndpointService.deleteBook(book.id!).subscribe();
-        this.books = this.books.filter(val => val.id !== book.id);
+        this.bookEndpointService.deleteBook(book.book_uuid!).subscribe();
+        this.books = this.books.filter(val => val.book_uuid !== book.book_uuid);
         this.book = {};
         this.messageService.add({severity:'success', summary: 'Successful', detail: 'Book Deleted!', life: 3000});
         window.location.reload()
@@ -67,7 +67,7 @@ export class BookPanelComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.selectedBooks.forEach(selectedBook => {
-          this.bookEndpointService.deleteBook(selectedBook.id!).subscribe();
+          this.bookEndpointService.deleteBook(selectedBook.book_uuid!).subscribe();
         })
         this.books = this.books.filter(val => !this.selectedBooks.includes(val));
         this.selectedBooks = [];
