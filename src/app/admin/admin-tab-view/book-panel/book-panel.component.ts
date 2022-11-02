@@ -73,8 +73,6 @@ export class BookPanelComponent implements OnInit {
         this.messageService.add({severity:'success', summary: 'Successful', detail: 'Book Updated', life: 3000});
       }
       else {
-        this.book.id = this.createId();
-        // this.product.image = 'product-placeholder.svg';
         this.books.push(this.book);
         //endpoint
         this.messageService.add({severity:'success', summary: 'Successful', detail: 'Book Added!', life: 3000});
@@ -91,7 +89,7 @@ export class BookPanelComponent implements OnInit {
     this.submitted = false;
   }
 
-  private findIndexById(id: string) {
+  private findIndexById(id: number) {
     let index = -1;
     for (let i = 0; i < this.books.length; i++) {
       if (this.books[i].id === id) {
@@ -100,14 +98,5 @@ export class BookPanelComponent implements OnInit {
       }
     }
     return index;
-  }
-
-  private createId() {
-    let id = '';
-    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 32; i++ ) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
   }
 }
