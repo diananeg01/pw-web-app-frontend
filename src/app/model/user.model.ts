@@ -1,7 +1,7 @@
 import {UserRole} from "./user-role";
 
 export class UserModel {
-  id?: number;
+  user_uuid?: number;
   username?: string;
   firstname?: string;
   lastname?: string;
