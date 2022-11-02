@@ -13,14 +13,8 @@ export class UserEndpointService {
 
   constructor(private http: HttpClient) {}
 
-  signUp(username: string, email: string, password: string, firstname: string, lastname: string) {
-    return this.http.post(BKE_API + `/register`, {
-      username,
-      email,
-      password,
-      firstname,
-      lastname
-    });
+  signUp(username: string, email: string, password: string) {
+    return this.http.post(BKE_API + `/register?username=${username}&email=${email}&password=${password}`, {});
   }
 
   signIn(username: string, password: string) {
