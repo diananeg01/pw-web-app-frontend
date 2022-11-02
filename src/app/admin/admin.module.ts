@@ -18,6 +18,7 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {FormsModule} from "@angular/forms";
 import {TabMenuModule} from "primeng/tabmenu";
 import {CardModule} from "primeng/card";
+import {InputSwitchModule} from "primeng/inputswitch";
 
 
 
@@ -27,23 +28,24 @@ import {CardModule} from "primeng/card";
     UsersPanelComponent,
     AdminTabViewComponent
   ],
-  imports: [
-    CommonModule,
-    ToolbarModule,
-    FileUploadModule,
-    TableModule,
-    RippleModule,
-    RatingModule,
-    DialogModule,
-    RadioButtonModule,
-    ConfirmDialogModule,
-    ToastModule,
-    InputNumberModule,
-    InputTextModule,
-    InputTextareaModule,
-    FormsModule,
-    TabMenuModule,
-    CardModule
-  ]
+    imports: [
+        CommonModule,
+        ToolbarModule,
+        FileUploadModule,
+        TableModule,
+        RippleModule,
+        RatingModule,
+        DialogModule,
+        RadioButtonModule,
+        ConfirmDialogModule,
+        ToastModule,
+        InputNumberModule,
+        InputTextModule,
+        InputTextareaModule,
+        FormsModule,
+        TabMenuModule,
+        CardModule,
+        InputSwitchModule
+    ]
 })
 export class AdminModule { }

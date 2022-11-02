@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfirmationService, MessageService} from "primeng/api";
 import {UserModel} from "../../../model/user.model";
-import {RoleEnum} from "../../../model/role.enum";
+import {UserRole} from "../../../model/user-role";
+import {UserEndpointService} from "../../../endpoints/user-endpoint.service";
 
 @Component({
   selector: 'app-users-panel',
   templateUrl: './users-panel.component.html',
   styleUrls: ['./users-panel.component.scss'],
-  providers: [MessageService, ConfirmationService]
+  providers: [MessageService, ConfirmationService, UserEndpointService]
 })
 export class UsersPanelComponent implements OnInit {
 
@@ -15,19 +16,33 @@ export class UsersPanelComponent implements OnInit {
   selectedUsers: UserModel[] = [];
   user: UserModel = {};
   userDialog: boolean = false;
-  submitted: boolean = false;
+  isAdmin: boolean = false;
+
+  admin = UserRole.ADMIN;
+  reader = UserRole.READER;
 
   constructor(private messageService: MessageService,
-              private confirmationService: ConfirmationService) { }
+              private confirmationService: ConfirmationService,
+              private userEndpointService: UserEndpointService) { }
 
   ngOnInit(): void {
-    //ia din endpoint
+    this.userEndpointService.getUsers().subscribe({
+      next: users => {
+        console.log(users)
+        this.users = users;
+      }
+    })
     console.log("users-panel");
   }
 
-  makeAdmin(user: UserModel) {
-    user.role = RoleEnum.ADMIN;
-    //endpoint
+  makeAdmin() {
+    if(this.isAdmin) {
+      this.user.userRole = UserRole.ADMIN;
+    } else {
+      this.user.userRole = UserRole.READER;
+    }
+    this.userEndpointService.editUser(this.user, this.user.email!).subscribe();
+    this.userDialog = false;
   }
 
   deleteUser(user: UserModel) {
@@ -36,10 +51,11 @@ export class UsersPanelComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
+        this.userEndpointService.deleteUser(user.id!).subscribe();
         this.users = this.users.filter(val => val.id !== user.id);
         this.user = {};
-        //endpoint
         this.messageService.add({severity:'success', summary: 'Successful', detail: 'User Deleted!', life: 3000});
+        window.location.reload()
       }
     });
   }
@@ -50,11 +66,26 @@ export class UsersPanelComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
+        this.selectedUsers.forEach(selectedUser => {
+          this.userEndpointService.deleteUser(selectedUser.id!).subscribe();
+        });
         this.users = this.users.filter(val => !this.selectedUsers.includes(val));
         this.selectedUsers = [];
-        //endpoint
         this.messageService.add({severity:'success', summary: 'Successful', detail: 'Users Deleted!', life: 3000});
+        window.location.reload()
       }
     });
+  }
+
+  hideDialog() {
+    this.userDialog = false;
+  }
+
+  openNew(user: UserModel) {
+    this.userDialog = true;
+    this.user = user;
+    if(user.userRole === this.admin) {
+      this.isAdmin = true;
+    }
   }
 }
