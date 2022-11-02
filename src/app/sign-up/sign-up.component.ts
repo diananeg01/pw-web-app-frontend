@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {GoogleLoginProvider, SocialAuthService} from "angularx-social-login";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {UserEndpointService} from "../endpoints/user-endpoint.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -20,7 +21,8 @@ export class SignUpComponent implements OnInit {
   });
 
   constructor(private router: Router,
-              private socialAuthService: SocialAuthService) {
+              private socialAuthService: SocialAuthService,
+              private userEndpointService: UserEndpointService) {
   }
 
   loginWithGoogle(): void {
@@ -35,6 +37,9 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp() {
+    localStorage.setItem('username', JSON.stringify(this.username));
+    localStorage.setItem('email', JSON.stringify(this.email));
+    this.userEndpointService.signUp(this.username, this.email, this.password)
     this.router.navigate(["sign-up-details/personal-information"]);
   }
 }
